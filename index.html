@@ -127,7 +127,8 @@
           return;
         }
         final_transcript = "";
-        // interim_transcript = "";
+        interim_transcript = "";
+        console.log(event.results)
         for (var i = event.resultIndex; i < event.results.length; ++i) {
           if (event.results[i].isFinal) {
             final_transcript += event.results[i][0].transcript;
@@ -149,12 +150,20 @@
           "పంది": "pandi.jpg",
           "గుర్రం": "gurram.jpg",
           "ఏనుగు": "enugu.jpg",
-          "కాకి": "kaki.jpg"
+          "కాకి": "kaki.jpg",
+          "నక్క": "nakka.jpg",
+          "పాము": "paamu.jpg",
+          "మంచి పల్లి": "manchiballi.jpg",
+          "గాడిద": "gadidha.gif",
+          "ఎలకా బకెట్": "elaka2.gif",
+          "ఎలక": "elaka.gif"
         };
         // Ganishka queries:
         // meka pillalu
         // inko meka choopinchu
-        console.log(final_transcript)
+        // గాడిద, ఎలక, 
+        console.log("final:" + final_transcript)
+        console.log("interim:" + interim_transcript)
         search_image_key = final_transcript.trim()
         if (images_map[search_image_key] != undefined) {
           document.getElementById('img_search').src = "assets/" + images_map[search_image_key]
@@ -204,7 +213,7 @@
         recognition.stop();
         return;
       }
-      final_transcript = ""; //temp keep adding
+      // final_transcript = ""; //temp keep adding
       recognition.lang = "te-IN"; // select_dialect.value;
       recognition.start();
       ignore_onend = false;
